@@ -3,14 +3,16 @@ using Datos;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Datos.Migrations
 {
     [DbContext(typeof(SyscscContext))]
-    partial class SyscscContextModelSnapshot : ModelSnapshot
+    [Migration("20200514043521_ModificarTablaInsumoExterno")]
+    partial class ModificarTablaInsumoExterno
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
