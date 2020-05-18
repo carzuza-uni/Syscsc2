@@ -7,6 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Datos;
 using Microsoft.EntityFrameworkCore;
+using MySQL.Data.EntityFrameworkCore;
 //using Microsoft.OpenApi.Models;
 
 namespace my_new_app
@@ -25,7 +26,7 @@ namespace my_new_app
         {
             // Configurar cadena de Conexion con EF
             var connectionString = Configuration.GetConnectionString("DefaultConnection");
-            services.AddDbContext<SyscscContext>(p=>p.UseSqlServer(connectionString));
+            services.AddDbContext<SyscscContext>(p=>p.UseMySQL(connectionString));
 
             services.AddControllersWithViews();
             // In production, the Angular files will be served from this directory

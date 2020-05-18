@@ -1,30 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\CARLOS\\Desktop\\Nueva carpeta\\escritorio\\universidad\\programacion web\\proyectos git\\Syscsc-master\\Entity\\Entity.csproj": {}
+    "C:\\Users\\Carlos\\Desktop\\proyectos_uni\\proyectos_git\\Syscsc2\\Entity\\Entity.csproj": {}
   },
   "projects": {
-    "C:\\Users\\CARLOS\\Desktop\\Nueva carpeta\\escritorio\\universidad\\programacion web\\proyectos git\\Syscsc-master\\Entity\\Entity.csproj": {
+    "C:\\Users\\Carlos\\Desktop\\proyectos_uni\\proyectos_git\\Syscsc2\\Entity\\Entity.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\CARLOS\\Desktop\\Nueva carpeta\\escritorio\\universidad\\programacion web\\proyectos git\\Syscsc-master\\Entity\\Entity.csproj",
+        "projectUniqueName": "C:\\Users\\Carlos\\Desktop\\proyectos_uni\\proyectos_git\\Syscsc2\\Entity\\Entity.csproj",
         "projectName": "Entity",
-        "projectPath": "C:\\Users\\CARLOS\\Desktop\\Nueva carpeta\\escritorio\\universidad\\programacion web\\proyectos git\\Syscsc-master\\Entity\\Entity.csproj",
-        "packagesPath": "C:\\Users\\CARLOS\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\CARLOS\\Desktop\\Nueva carpeta\\escritorio\\universidad\\programacion web\\proyectos git\\Syscsc-master\\Entity\\obj\\",
+        "projectPath": "C:\\Users\\Carlos\\Desktop\\proyectos_uni\\proyectos_git\\Syscsc2\\Entity\\Entity.csproj",
+        "packagesPath": "C:\\Users\\Carlos\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Carlos\\Desktop\\proyectos_uni\\proyectos_git\\Syscsc2\\Entity\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\CARLOS\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\Carlos\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netstandard2.1"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -61,7 +56,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.202\\RuntimeIdentifierGraph.json"
         }
       }
     }

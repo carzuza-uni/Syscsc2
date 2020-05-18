@@ -2,69 +2,66 @@
 using Datos;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
-using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Datos.Migrations
 {
     [DbContext(typeof(SyscscContext))]
-    [Migration("20200512074207_AddTablas")]
-    partial class AddTablas
+    [Migration("20200518045126_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "3.1.3")
-                .HasAnnotation("Relational:MaxIdentifierLength", 128)
-                .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
             modelBuilder.Entity("Entity.Agroclimatica", b =>
                 {
                     b.Property<int>("AgroclimaticaId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("int");
 
                     b.Property<string>("AnalisisSuelo")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("Estado")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("Este")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("FechaRealizacion")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("Latitud")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("MSNM")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("NorteLongitud")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("Observaciones")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("PlanFertilizacion")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("PreparacionAbono")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<int>("ProveedorId")
                         .HasColumnType("int");
 
                     b.Property<string>("Tipo")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("TipoTextura")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.HasKey("AgroclimaticaId");
 
@@ -78,12 +75,11 @@ namespace Datos.Migrations
                 {
                     b.Property<int>("CultivoId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("int");
 
                     b.Property<string>("Nombre")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.HasKey("CultivoId");
 
@@ -94,29 +90,28 @@ namespace Datos.Migrations
                 {
                     b.Property<int>("Identificacion")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("int");
 
                     b.Property<string>("AfilicionSalud")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("FechaNacimiento")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("NivelEducativo")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("Nombre")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("Parentesco")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<int>("ProveedorId")
                         .HasColumnType("int");
 
                     b.Property<string>("TipoPoblacion")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.HasKey("Identificacion");
 
@@ -127,51 +122,38 @@ namespace Datos.Migrations
 
             modelBuilder.Entity("Entity.InsumoExterno", b =>
                 {
-                    b.Property<int>("AgroclimaticaId")
+                    b.Property<int>("InsumoExternoId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("int");
 
-                    b.Property<string>("AnalisisSuelo")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<string>("Cantidad")
+                        .HasColumnType("text");
 
-                    b.Property<string>("Estado")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<string>("Composicion")
+                        .HasColumnType("text");
 
-                    b.Property<string>("Este")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<string>("Dosis")
+                        .HasColumnType("text");
 
-                    b.Property<string>("FechaRealizacion")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<string>("Fabricante")
+                        .HasColumnType("text");
 
-                    b.Property<string>("Latitud")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<string>("FechaAplicacion")
+                        .HasColumnType("text");
 
-                    b.Property<string>("MSNM")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<string>("LugarAplicacion")
+                        .HasColumnType("text");
 
-                    b.Property<string>("NorteLongitud")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Observaciones")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PlanFertilizacion")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PreparacionAbono")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<string>("Nombre")
+                        .HasColumnType("text");
 
                     b.Property<int>("ProveedorId")
                         .HasColumnType("int");
 
-                    b.Property<string>("Tipo")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<string>("RegistroICA")
+                        .HasColumnType("text");
 
-                    b.Property<string>("TipoTextura")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("AgroclimaticaId");
+                    b.HasKey("InsumoExternoId");
 
                     b.HasIndex("ProveedorId");
 
@@ -182,38 +164,37 @@ namespace Datos.Migrations
                 {
                     b.Property<int>("InsumoInternoId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("int");
 
                     b.Property<string>("Cantidad")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("Dosis")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("FechaAplicacion")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("LugarAplicacion")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("MaterialesUsado")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("MetodoPreparacion")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("Nombre")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("Procedimiento")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<int>("ProveedorId")
                         .HasColumnType("int");
 
                     b.Property<string>("TiempoPreparacion")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.HasKey("InsumoInternoId");
 
@@ -226,12 +207,11 @@ namespace Datos.Migrations
                 {
                     b.Property<int>("CultivoId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("int");
 
                     b.Property<string>("Nombre")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.HasKey("CultivoId");
 
@@ -242,35 +222,37 @@ namespace Datos.Migrations
                 {
                     b.Property<int>("ProveedorId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("int");
 
                     b.Property<string>("Actividades")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("AfiliacionSalud")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("Cedula")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("CedulaCafetera")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("CodigoFinca")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("CodigoSICA")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<int>("MunicipioId")
                         .HasColumnType("int");
 
+                    b.Property<string>("Nombre")
+                        .HasColumnType("text");
+
                     b.Property<string>("NombrePredio")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("Telefono")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.HasKey("ProveedorId");
 
@@ -282,40 +264,40 @@ namespace Datos.Migrations
             modelBuilder.Entity("Entity.Usuario", b =>
                 {
                     b.Property<string>("NumeroCedula")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("varchar(767)");
 
                     b.Property<string>("Contrasena")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("Email")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("NombreCompleto")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("PrimerApellido")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("PrimerNombre")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("SegundoApellido")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("SegundoNombre")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("Telefono")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<int>("TipoUsuario")
                         .HasColumnType("int");
 
                     b.Property<string>("TipoUsuarioNombre")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("UsuarioI")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.HasKey("NumeroCedula");
 
