@@ -16,42 +16,47 @@ namespace Logica
             _context = context;
         }
 
-        public GuardarProveedorResponse Guardar(Proveedor proveedor){
+        public GuardarProductorResponse Guardar(Productor productor){
             try{
-                //var proveedorBuscado = _context.Proveedores.Find(proveedor.Cedula);
-                //if(proveedorBuscado != null){
-                    //return new GuardarProveedorResponse("Error el proveedor ya se encuentra registrado");
+                //var ProductorBuscado = _context.Productores.Find(productor.Cedula);
+                //if(ProductorBuscado != null){
+                    //return new GuardarProductorResponse("Error el Productor ya se encuentra registrado");
                 //}
-                var m = _context.Municipios.Find(proveedor.MunicipioId);
-                proveedor.Municipio = m;
-                _context.Proveedores.Add(proveedor);
+                var m = _context.Municipios.Find(productor.MunicipioId);
+                productor.Municipio = m;
+                _context.Productores.Add(productor);
                 _context.SaveChanges();
-                return new GuardarProveedorResponse(proveedor);
+                return new GuardarProductorResponse(productor);
             }catch(Exception e){ 
-                return new GuardarProveedorResponse($"Error de la aplicacion: {e.Message}");
+                return new GuardarProductorResponse($"Error de la aplicacion: {e.Message}");
             }
         }
 
-        public List<Proveedor> ConsultarTodos(){  
-            List<Proveedor> proveedor = _context.Proveedores.ToList();
-            return proveedor;
+        public List<Productor> ConsultarTodos(){  
+            List<Productor> productor = _context.Productores.ToList();
+            return productor;
+        }
+
+        public Productor Detalle(int productorId){  
+            Productor productor = _context.Productores.Find(productorId);
+            return productor;
         }
     }
 
-    public class GuardarProveedorResponse 
+    public class GuardarProductorResponse 
     {
-        public GuardarProveedorResponse(Proveedor proveedor1)
+        public GuardarProductorResponse(Productor productor1)
         {
             Error = false;
-            proveedor = proveedor1;
+            productor = productor1;
         }
-        public GuardarProveedorResponse(string mensaje)
+        public GuardarProductorResponse(string mensaje)
         {
             Error = true;
             Mensaje = mensaje;
         }
         public bool Error { get; set; }
         public string Mensaje { get; set; }
-        public Proveedor proveedor { get; set; }
+        public Productor productor { get; set; }
     }
 }

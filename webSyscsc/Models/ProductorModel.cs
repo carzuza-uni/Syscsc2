@@ -4,7 +4,7 @@ namespace webSyscsc.Models
 {
     public class ProductorInputModel
     {
-        public int ProveedorId { get; set; }
+        public int ProductorId { get; set; }
         public int MunicipioId { get; set; }
         public string Nombre { get; set; }
         public string Cedula { get; set; }
@@ -23,9 +23,9 @@ namespace webSyscsc.Models
         {
 
         }
-        public ProductorViewModel(Proveedor productor)
+        public ProductorViewModel(Productor productor)
         {
-            ProveedorId = productor.ProveedorId;
+            ProductorId = productor.ProductorId;
             MunicipioId = productor.MunicipioId;
             Nombre = productor.Nombre;
             Cedula = productor.Cedula;

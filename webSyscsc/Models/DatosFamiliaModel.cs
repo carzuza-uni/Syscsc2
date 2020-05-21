@@ -5,7 +5,7 @@ namespace webSyscsc.Models
     public class DatosFamiliaInputModel
     {
         public int Identificacion { get; set; }
-        public int ProveedorId { get; set; }
+        public int ProductorId { get; set; }
         public string Nombre { get; set; }
         public string FechaNacimiento { get; set; }
         public string Parentesco { get; set; }
@@ -23,7 +23,7 @@ namespace webSyscsc.Models
         public DatosFamiliaViewModel(DatosFamilia datosFamilia)
         {
             Identificacion = datosFamilia.Identificacion;
-            ProveedorId = datosFamilia.ProveedorId;
+            ProductorId = datosFamilia.ProductorId;
             Nombre = datosFamilia.Nombre;
             FechaNacimiento = datosFamilia.FechaNacimiento;
             Parentesco = datosFamilia.Parentesco;

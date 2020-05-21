@@ -37,7 +37,7 @@ namespace webSyscsc.Controllers
             var datosFamilia = new DatosFamilia
             {
                 Identificacion = datosFamiliaInput.Identificacion,
-                ProveedorId = datosFamiliaInput.ProveedorId,
+                ProductorId = datosFamiliaInput.ProductorId,
                 Nombre = datosFamiliaInput.Nombre,
                 FechaNacimiento = datosFamiliaInput.FechaNacimiento,
                 Parentesco = datosFamiliaInput.Parentesco,

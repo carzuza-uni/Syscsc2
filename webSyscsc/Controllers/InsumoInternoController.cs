@@ -37,7 +37,7 @@ namespace webSyscsc.Controllers
             var insumoInterno = new InsumoInterno
             {
                 InsumoInternoId = insumoInternoInput.InsumoInternoId,
-                ProveedorId = insumoInternoInput.ProveedorId,
+                ProductorId = insumoInternoInput.ProductorId,
                 Nombre = insumoInternoInput.Nombre,
                 MaterialesUsado = insumoInternoInput.MaterialesUsado,
                 Procedimiento = insumoInternoInput.Procedimiento,

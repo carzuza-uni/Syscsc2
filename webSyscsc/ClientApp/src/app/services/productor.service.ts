@@ -33,4 +33,12 @@ export class ProductorService {
         catchError(this.handleErrorService.handleError<Productor[]>('Consulta productor', null))
       );
   }
+
+  detalle(id: number): Observable<Productor>{
+    return this.http.get<Productor>(this.baseUrl + 'api/Productor/'+id)
+      .pipe(
+        tap(_ => this.handleErrorService.log('Datos consultados')),
+        catchError(this.handleErrorService.handleError<Productor>('detalle productor', null))
+      );
+  }
 }

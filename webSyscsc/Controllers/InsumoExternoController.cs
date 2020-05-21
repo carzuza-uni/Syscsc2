@@ -37,7 +37,7 @@ namespace webSyscsc.Controllers
             var insumoExterno = new InsumoExterno
             {
                 InsumoExternoId = insumoExternoInput.InsumoExternoId,
-                ProveedorId = insumoExternoInput.ProveedorId,
+                ProductorId = insumoExternoInput.ProductorId,
                 Nombre = insumoExternoInput.Nombre,
                 Fabricante = insumoExternoInput.Fabricante,
                 RegistroICA = insumoExternoInput.RegistroICA,

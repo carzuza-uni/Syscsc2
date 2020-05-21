@@ -5,7 +5,7 @@ namespace webSyscsc.Models
     public class InsumoInternoInputModel
     {
         public int InsumoInternoId { get; set; }
-        public int ProveedorId { get; set; }
+        public int ProductorId { get; set; }
         public string Nombre { get; set; }
         public string MaterialesUsado { get; set; }
         public string Procedimiento { get; set; }
@@ -26,7 +26,7 @@ namespace webSyscsc.Models
         public InsumoInternoViewModel(InsumoInterno insumoInterno)
         {
             InsumoInternoId = insumoInterno.InsumoInternoId;
-            ProveedorId = insumoInterno.ProveedorId;
+            ProductorId = insumoInterno.ProductorId;
             Nombre = insumoInterno.Nombre;
             MaterialesUsado = insumoInterno.MaterialesUsado;
             Procedimiento = insumoInterno.Procedimiento;

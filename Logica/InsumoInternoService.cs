@@ -22,7 +22,7 @@ namespace Logica
                 if(insumoInternoB != null){
                     return new GuardarInsumoInternoResponse("Error el insumo Externo ya se encuentra registrado");
                 }*/
-                var p = _context.Proveedores.Find(insumoInterno.ProveedorId);                
+                var p = _context.Productores.Find(insumoInterno.ProductorId);                
                 p.InsumoInternos.Add(insumoInterno);
                 _context.SaveChanges();
                 return new GuardarInsumoInternoResponse(insumoInterno);
@@ -38,7 +38,7 @@ namespace Logica
                     return new GuardarInsumoInternoResponse("Error el insumo Externo no se encuentra registrado");
                 }
 
-                //var p = _context.Proveedores.Find(datosFamilia.ProveedorId);  
+                //var p = _context.Productores.Find(datosFamilia.ProductorId);  
                 insumoInternoB.Nombre = insumoInterno.Nombre;
                 insumoInternoB.MaterialesUsado = insumoInterno.MaterialesUsado;
                 insumoInternoB.Procedimiento = insumoInterno.Procedimiento;
@@ -58,7 +58,7 @@ namespace Logica
         }
         
         public List<InsumoInterno> ConsultarTodos(int id){  
-            List<InsumoInterno> insumoInternos = _context.InsumoInternos.Where(d => d.ProveedorId == id).ToList();
+            List<InsumoInterno> insumoInternos = _context.InsumoInternos.Where(d => d.ProductorId == id).ToList();
             return insumoInternos;
         }
     }

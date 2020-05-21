@@ -6,7 +6,7 @@ namespace Entity
     public class Municipio
     {
         [Key]
-        public int CultivoId { get; set; }
+        public int MunicipioId { get; set; }
         [Required]
         public string Nombre { get; set; }   
     }

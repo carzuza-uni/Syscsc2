@@ -22,9 +22,6 @@ namespace Logica
                 if(cultivoBuscado != null){
                     return new GuardarCultivoResponse("Error el cultivo ya se encuentra registrado");
                 }*/
-                //Municipio m = new Municipio();
-                //m.Nombre = "Valledupar";
-                //_context.Municipios.Add(m);
 
                 _context.Cultivos.Add(cultivo);
                 _context.SaveChanges();

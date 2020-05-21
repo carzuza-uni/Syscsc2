@@ -1,5 +1,5 @@
 export class Productor {
-    ProveedorId: number;
+    ProductorId: number;
     MunicipioId: number;
     Nombre: string;
     Cedula: string;

@@ -7,7 +7,7 @@ namespace Entity
     {
         [Key]
         public int AgroclimaticaId { get; set; }
-        public int ProveedorId { get; set; }
+        public int ProductorId { get; set; }
         public string Latitud { get; set; }
         public string NorteLongitud { get; set; }
         public string Este { get; set; }

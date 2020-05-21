@@ -22,7 +22,7 @@ namespace Logica
                 if(agroclimaticaB != null){
                     return new GuardarAgroclimaticaResponse("Error el agroclimatica ya se encuentra registrado");
                 }*/
-                var p = _context.Proveedores.Find(agroclimatica.ProveedorId);                
+                var p = _context.Productores.Find(agroclimatica.ProductorId);                
                 p.Agroclimatica = agroclimatica;
                 _context.SaveChanges();
                 return new GuardarAgroclimaticaResponse(agroclimatica);
@@ -38,7 +38,7 @@ namespace Logica
                     return new GuardarAgroclimaticaResponse("Error el agroclimatica no se encuentra registrado");
                 }
 
-                //var p = _context.Proveedores.Find(datosFamilia.ProveedorId);  
+                //var p = _context.Productores.Find(datosFamilia.ProductorId);  
                 agroclimaticaB.Latitud = agroclimatica.Latitud;
                 agroclimaticaB.NorteLongitud = agroclimatica.NorteLongitud;
                 agroclimaticaB.Este = agroclimatica.Este;
@@ -61,7 +61,7 @@ namespace Logica
         }
 
         public Agroclimatica Obtener(int id){  
-            var agroclimatica = _context.Agroclimaticas.Single(a => a.ProveedorId == id);
+            var agroclimatica = _context.Agroclimaticas.Single(a => a.ProductorId == id);
             return agroclimatica;
         }
     }

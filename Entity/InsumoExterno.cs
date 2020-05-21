@@ -7,7 +7,7 @@ namespace Entity
     {
         [Key]
         public int InsumoExternoId { get; set; }
-        public int ProveedorId { get; set; }
+        public int ProductorId { get; set; }
         public string Nombre { get; set; }
         public string Fabricante { get; set; }
         public string RegistroICA { get; set; }

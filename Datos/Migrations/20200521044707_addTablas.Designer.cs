@@ -8,8 +8,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Datos.Migrations
 {
     [DbContext(typeof(SyscscContext))]
-    [Migration("20200518045126_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20200521044707_addTablas")]
+    partial class addTablas
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -54,7 +54,7 @@ namespace Datos.Migrations
                     b.Property<string>("PreparacionAbono")
                         .HasColumnType("text");
 
-                    b.Property<int>("ProveedorId")
+                    b.Property<int>("ProductorId")
                         .HasColumnType("int");
 
                     b.Property<string>("Tipo")
@@ -65,7 +65,7 @@ namespace Datos.Migrations
 
                     b.HasKey("AgroclimaticaId");
 
-                    b.HasIndex("ProveedorId")
+                    b.HasIndex("ProductorId")
                         .IsUnique();
 
                     b.ToTable("Agroclimaticas");
@@ -107,7 +107,7 @@ namespace Datos.Migrations
                     b.Property<string>("Parentesco")
                         .HasColumnType("text");
 
-                    b.Property<int>("ProveedorId")
+                    b.Property<int>("ProductorId")
                         .HasColumnType("int");
 
                     b.Property<string>("TipoPoblacion")
@@ -115,7 +115,7 @@ namespace Datos.Migrations
 
                     b.HasKey("Identificacion");
 
-                    b.HasIndex("ProveedorId");
+                    b.HasIndex("ProductorId");
 
                     b.ToTable("DatosFamilias");
                 });
@@ -147,7 +147,7 @@ namespace Datos.Migrations
                     b.Property<string>("Nombre")
                         .HasColumnType("text");
 
-                    b.Property<int>("ProveedorId")
+                    b.Property<int>("ProductorId")
                         .HasColumnType("int");
 
                     b.Property<string>("RegistroICA")
@@ -155,7 +155,7 @@ namespace Datos.Migrations
 
                     b.HasKey("InsumoExternoId");
 
-                    b.HasIndex("ProveedorId");
+                    b.HasIndex("ProductorId");
 
                     b.ToTable("InsumoExternos");
                 });
@@ -190,7 +190,7 @@ namespace Datos.Migrations
                     b.Property<string>("Procedimiento")
                         .HasColumnType("text");
 
-                    b.Property<int>("ProveedorId")
+                    b.Property<int>("ProductorId")
                         .HasColumnType("int");
 
                     b.Property<string>("TiempoPreparacion")
@@ -198,14 +198,14 @@ namespace Datos.Migrations
 
                     b.HasKey("InsumoInternoId");
 
-                    b.HasIndex("ProveedorId");
+                    b.HasIndex("ProductorId");
 
                     b.ToTable("InsumoInternos");
                 });
 
             modelBuilder.Entity("Entity.Municipio", b =>
                 {
-                    b.Property<int>("CultivoId")
+                    b.Property<int>("MunicipioId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
@@ -213,14 +213,14 @@ namespace Datos.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.HasKey("CultivoId");
+                    b.HasKey("MunicipioId");
 
                     b.ToTable("Municipios");
                 });
 
-            modelBuilder.Entity("Entity.Proveedor", b =>
+            modelBuilder.Entity("Entity.Productor", b =>
                 {
-                    b.Property<int>("ProveedorId")
+                    b.Property<int>("ProductorId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
@@ -254,11 +254,11 @@ namespace Datos.Migrations
                     b.Property<string>("Telefono")
                         .HasColumnType("text");
 
-                    b.HasKey("ProveedorId");
+                    b.HasKey("ProductorId");
 
                     b.HasIndex("MunicipioId");
 
-                    b.ToTable("Proveedores");
+                    b.ToTable("Productores");
                 });
 
             modelBuilder.Entity("Entity.Usuario", b =>
@@ -306,41 +306,41 @@ namespace Datos.Migrations
 
             modelBuilder.Entity("Entity.Agroclimatica", b =>
                 {
-                    b.HasOne("Entity.Proveedor", null)
+                    b.HasOne("Entity.Productor", null)
                         .WithOne("Agroclimatica")
-                        .HasForeignKey("Entity.Agroclimatica", "ProveedorId")
+                        .HasForeignKey("Entity.Agroclimatica", "ProductorId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
             modelBuilder.Entity("Entity.DatosFamilia", b =>
                 {
-                    b.HasOne("Entity.Proveedor", null)
+                    b.HasOne("Entity.Productor", null)
                         .WithMany("DatosFamilias")
-                        .HasForeignKey("ProveedorId")
+                        .HasForeignKey("ProductorId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
             modelBuilder.Entity("Entity.InsumoExterno", b =>
                 {
-                    b.HasOne("Entity.Proveedor", null)
+                    b.HasOne("Entity.Productor", null)
                         .WithMany("InsumoExternos")
-                        .HasForeignKey("ProveedorId")
+                        .HasForeignKey("ProductorId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
             modelBuilder.Entity("Entity.InsumoInterno", b =>
                 {
-                    b.HasOne("Entity.Proveedor", null)
+                    b.HasOne("Entity.Productor", null)
                         .WithMany("InsumoInternos")
-                        .HasForeignKey("ProveedorId")
+                        .HasForeignKey("ProductorId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Entity.Proveedor", b =>
+            modelBuilder.Entity("Entity.Productor", b =>
                 {
                     b.HasOne("Entity.Municipio", "Municipio")
                         .WithMany()

@@ -5,7 +5,7 @@ namespace webSyscsc.Models
     public class AgroclimaticaInputModel
     {
         public int AgroclimaticaId { get; set; }
-        public int ProveedorId { get; set; }
+        public int ProductorId { get; set; }
         public string Latitud { get; set; }
         public string NorteLongitud { get; set; }
         public string Este { get; set; }
@@ -29,7 +29,7 @@ namespace webSyscsc.Models
         public AgroclimaticaViewModel(Agroclimatica agroclimatica)
         {
             AgroclimaticaId = agroclimatica.AgroclimaticaId;
-            ProveedorId = agroclimatica.ProveedorId;
+            ProductorId = agroclimatica.ProductorId;
             Latitud = agroclimatica.Latitud;
             NorteLongitud = agroclimatica.NorteLongitud;
             Este = agroclimatica.Este;

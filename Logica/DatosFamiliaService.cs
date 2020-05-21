@@ -22,7 +22,7 @@ namespace Logica
                 if(datosFamiliaB != null){
                     return new GuardarDatosFamiliaResponse("Error el datos Familia ya se encuentra registrado");
                 }
-                var p = _context.Proveedores.Find(datosFamilia.ProveedorId);                
+                var p = _context.Productores.Find(datosFamilia.ProductorId);                
                 p.DatosFamilias.Add(datosFamilia);
                 _context.SaveChanges();
                 return new GuardarDatosFamiliaResponse(datosFamilia);
@@ -38,7 +38,7 @@ namespace Logica
                     return new GuardarDatosFamiliaResponse("Error el datos Familia no se encuentra registrado");
                 }
 
-                //var p = _context.Proveedores.Find(datosFamilia.ProveedorId);  
+                //var p = _context.Productores.Find(datosFamilia.ProductorId);  
                 datosFamiliaB.Nombre = datosFamilia.Nombre;
                 datosFamiliaB.FechaNacimiento = datosFamilia.FechaNacimiento;
                 datosFamiliaB.Parentesco = datosFamilia.Parentesco;
@@ -55,7 +55,7 @@ namespace Logica
         }
 
         public List<DatosFamilia> ConsultarTodos(int id){  
-            List<DatosFamilia> datosFamilias = _context.DatosFamilias.Where(d => d.ProveedorId == id).ToList();
+            List<DatosFamilia> datosFamilias = _context.DatosFamilias.Where(d => d.ProductorId == id).ToList();
             return datosFamilias;
         }
     }

@@ -20,6 +20,7 @@ export class ProductorRegistroComponent implements OnInit {
     this.productor.MunicipioId = Number(this.productor.MunicipioId);
     this.productorService.post(this.productor).subscribe(p => {
       if (p) {
+        this.productor.Nombre = '';
         this.productor.MunicipioId = 0;
         this.productor.Cedula = '';
         this.productor.CedulaCafetera = '';

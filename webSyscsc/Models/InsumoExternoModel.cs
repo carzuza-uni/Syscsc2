@@ -5,7 +5,7 @@ namespace webSyscsc.Models
     public class InsumoExternoInputModel
     {
         public int InsumoExternoId { get; set; }
-        public int ProveedorId { get; set; }
+        public int ProductorId { get; set; }
         public string Nombre { get; set; }
         public string Fabricante { get; set; }
         public string RegistroICA { get; set; }
@@ -25,7 +25,7 @@ namespace webSyscsc.Models
         public InsumoExternoViewModel(InsumoExterno insumoExterno)
         {
             InsumoExternoId = insumoExterno.InsumoExternoId;
-            ProveedorId = insumoExterno.ProveedorId;
+            ProductorId = insumoExterno.ProductorId;
             Nombre = insumoExterno.Nombre;
             Fabricante = insumoExterno.Fabricante;
             RegistroICA = insumoExterno.RegistroICA;

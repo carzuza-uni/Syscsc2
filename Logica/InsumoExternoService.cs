@@ -22,7 +22,7 @@ namespace Logica
                 if(insumoExternoB != null){
                     return new GuardarInsumoExternoResponse("Error el insumo Externo ya se encuentra registrado");
                 }*/
-                var p = _context.Proveedores.Find(insumoExterno.ProveedorId);                
+                var p = _context.Productores.Find(insumoExterno.ProductorId);                
                 p.InsumoExternos.Add(insumoExterno);
                 _context.SaveChanges();
                 return new GuardarInsumoExternoResponse(insumoExterno);
@@ -38,7 +38,7 @@ namespace Logica
                     return new GuardarInsumoExternoResponse("Error el insumo Externo no se encuentra registrado");
                 }
 
-                //var p = _context.Proveedores.Find(datosFamilia.ProveedorId);  
+                //var p = _context.Productores.Find(datosFamilia.ProductorId);  
                 insumoExternoB.Nombre = insumoExterno.Nombre;
                 insumoExternoB.Fabricante = insumoExterno.Fabricante;
                 insumoExternoB.RegistroICA = insumoExterno.RegistroICA;
@@ -57,7 +57,7 @@ namespace Logica
         }
         
         public List<InsumoExterno> ConsultarTodos(int id){  
-            List<InsumoExterno> insumoExternos = _context.InsumoExternos.Where(d => d.ProveedorId == id).ToList();
+            List<InsumoExterno> insumoExternos = _context.InsumoExternos.Where(d => d.ProductorId == id).ToList();
             return insumoExternos;
         }
     }

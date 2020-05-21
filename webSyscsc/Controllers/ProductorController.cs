@@ -25,18 +25,18 @@ namespace webSyscsc.Controllers
 
         [HttpPost]
         public ActionResult<ProductorViewModel> post(ProductorInputModel productorInput){
-            Proveedor productor = Mapear(productorInput);
+            Productor productor = Mapear(productorInput);
             var response = _productorService.Guardar(productor);
             if(response.Error){
                 return BadRequest(response.Mensaje);
             }
-            return Ok(response.proveedor);
+            return Ok(response.productor);
         }
 
-        private Proveedor Mapear(ProductorInputModel productorInput){
-            var productor = new Proveedor
+        private Productor Mapear(ProductorInputModel productorInput){
+            var productor = new Productor
             {
-                ProveedorId = productorInput.ProveedorId,
+                ProductorId = productorInput.ProductorId,
                 MunicipioId = productorInput.MunicipioId,
                 //Municipio = productorInput.Municipio,
                 Nombre = productorInput.Nombre,
@@ -56,6 +56,17 @@ namespace webSyscsc.Controllers
         public IEnumerable<ProductorViewModel> gets(){
             var productores = _productorService.ConsultarTodos().Select(c=> new ProductorViewModel(c));
             return productores;
+        }
+
+        // GET: api/Productor/5
+        [HttpGet("{id}")]
+        public ActionResult<ProductorViewModel> detalle(int id){
+            Productor productor = _productorService.Detalle(id);
+            if(productor == null){
+                return null;
+            }
+            ProductorViewModel p = new ProductorViewModel(productor);
+            return p;
         }
     }
 }

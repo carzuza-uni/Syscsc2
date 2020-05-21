@@ -37,7 +37,7 @@ namespace webSyscsc.Controllers
             var agroclimatica = new Agroclimatica
             {
                 AgroclimaticaId = agroclimaticaInput.AgroclimaticaId,
-                ProveedorId = agroclimaticaInput.ProveedorId,
+                ProductorId = agroclimaticaInput.ProductorId,
                 Latitud = agroclimaticaInput.Latitud,
                 NorteLongitud = agroclimaticaInput.NorteLongitud,
                 Este = agroclimaticaInput.Este,

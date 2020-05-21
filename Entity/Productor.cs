@@ -4,10 +4,10 @@ using System.Collections.Generic;
 
 namespace Entity
 {
-    public class Proveedor
+    public class Productor
     {
         [Key]
-        public int ProveedorId { get; set; }
+        public int ProductorId { get; set; }
         public int MunicipioId { get; set; }
         public Municipio Municipio { get; set; }    
         public Agroclimatica Agroclimatica { get; set; }
