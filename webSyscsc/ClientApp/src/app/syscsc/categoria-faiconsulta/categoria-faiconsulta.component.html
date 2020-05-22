@@ -1,0 +1,47 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title">Consultar Categorías</h4>
+            </div>
+            <div class="card-body">
+                <form >
+                    <div class="row">
+                        <div class="col-md-3 pr-1">                            
+                            <div class="form-group">
+                                <label>Nombre</label>
+                                <input type="text"  name="nombre" class="form-control" />
+                                <div class="invalid-feedback">Este campo es obligatorio</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="update ml-auto mr-auto">
+                            <button class="btn btn-outline-success" (click)="add()">Guardar</button>
+                            <button type="reset" class="btn btn-outline-secondary">Cancelar</button>                            
+                        </div>
+                    </div>
+                </form> 
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead class=" text-primary">
+                            <th>#</th>
+                            <th>Nombre</th>
+                            <th>Acción</th>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let c of cultivos; index as i ">
+                                <th>{{ i + 1 }}</th>
+                                <td>{{c.nombre }}</td>
+                                <td>
+                                    <button class="btn btn-warning btn-sm" (click)="editar(i)">Editar</button>
+                                </td>
+                            </tr>
+                        </tbody>                    
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>

@@ -17,6 +17,8 @@ import { ProductorAgroclimaticaComponent } from './syscsc/productor-agroclimatic
 import { ProductorDatosFamiliaComponent } from './syscsc/productor-datos-familia/productor-datos-familia.component';
 import { ProductorRegistroComponent } from './syscsc/productor-registro/productor-registro.component';
 import { CultivoConsultaComponent } from './syscsc/cultivo-consulta/cultivo-consulta.component';
+import { CategoriaFAIConsultaComponent } from './syscsc/categoria-faiconsulta/categoria-faiconsulta.component';
+import { ItemFAIRegistroComponent } from './syscsc/item-fairegistro/item-fairegistro.component';
 
 const routes: Routes = [
   {
@@ -95,6 +97,15 @@ const routes: Routes = [
       path: 'cultivoConsulta',
       component: CultivoConsultaComponent
   },
+  {
+      path: 'categoriaFAIConsulta',
+      component: CategoriaFAIConsultaComponent
+  },
+  {
+      path: 'itemFAIRegistro',
+      component: ItemFAIRegistroComponent
+  },
+
 ];
 
 @NgModule({

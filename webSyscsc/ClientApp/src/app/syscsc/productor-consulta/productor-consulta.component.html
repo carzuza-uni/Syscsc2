@@ -33,6 +33,7 @@
                         <td>{{ productor.codigoSICA}}</td>
                         <td>
                           <a [routerLink]="['/productorDatosFamilia', productor.productorId]"><button class="btn btn-outline-info btn-sm">Ficha diagnostico</button></a>
+                          <a [routerLink]="['/productorEditar', productor.productorId]"><button class="btn btn-outline-warning btn-sm">Editar</button></a>
                         </td>
                     </tr>
                 </tbody>                    

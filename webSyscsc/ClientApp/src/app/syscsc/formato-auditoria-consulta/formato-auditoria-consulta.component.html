@@ -1,1 +1,83 @@
-<p>formato-auditoria-consulta works!</p>
+<div class="row">    
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title"> Registrar item</h4>
+            </div>
+            <div class="card-body">
+                <form >
+                    <div class="row">
+                        <div class="form-group col-md-3">
+                            <label>Categoría</label>
+                            <select name="nombre" class="form-control">
+                                <option value="" style="display: none;">Seleccione una opcion...</option>
+                                <option value="1">Categoría 1</option>
+                                <option value="2">Categoría 2</option>
+                                <option value="3">Categoría 3</option>
+                            </select>
+                            <div class="invalid-feedback">Este campo es obligatorio</div>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label>Orden</label>
+                            <input type="number"  name="nombre" class="form-control" />
+                            <div class="invalid-feedback">Este campo es obligatorio</div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>Descripción de item</label>
+                            <textarea name="nombre"  class="form-control" cols="30" rows="3"></textarea>
+                            <div class="invalid-feedback">Este campo es obligatorio</div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="update ml-auto mr-auto">
+                            <button class="btn btn-outline-success">Guardar</button>
+                            <button type="reset" class="btn btn-outline-secondary">Cancelar</button>                            
+                        </div>
+                    </div>
+                </form> 
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <input [(ngModel)]="searchText" type="text" class="form-control" placeholder="Buscar...">
+        <br>
+    </div>
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+              <div class="row">
+                <div class="col-md-6">
+                    <h4 class="card-title"> Consultar items del formato</h4>
+                </div>
+                <div class="col-md-6 text-right">
+                    <a [routerLink]="['/categoriaFAIConsulta']"><button class="btn btn-outline-success">Categorias</button></a>
+                </div>
+              </div>            
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead class=" text-primary">
+                            <th>Categoría</th>
+                            <th>Orden</th>
+                            <th>Item</th>
+                            <th>Acción</th>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let productor of productores; index as i ">
+                                <!--<th>{{ i + 1 }}</th>-->
+                                <td>{{ productor.nombrePredio}} </td>
+                                <td>{{ productor.cedula}}</td>
+                                <td>{{ productor.cedulaCafetera}}</td>
+                                <td>
+                                <a [routerLink]="['/productorDatosFamilia', productor.productorId]"><button class="btn btn-outline-info btn-sm">Ficha diagnostico</button></a>
+                                </td>
+                            </tr>
+                        </tbody>                    
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>

@@ -34,6 +34,9 @@ import { NavMenuProductorComponent } from './syscsc/nav-menu-productor/nav-menu-
 import { ProductorRegistroComponent } from './syscsc/productor-registro/productor-registro.component';
 import { CultivoConsultaComponent } from './syscsc/cultivo-consulta/cultivo-consulta.component';
 import { FiltroProductorPipe } from './pipe/filtro-productor.pipe';
+import { CategoriaFAIConsultaComponent } from './syscsc/categoria-faiconsulta/categoria-faiconsulta.component';
+import { ItemFAIConsultaComponent } from './syscsc/item-faiconsulta/item-faiconsulta.component';
+import { ItemFAIRegistroComponent } from './syscsc/item-fairegistro/item-fairegistro.component';
 
 @NgModule({
   declarations: [
@@ -62,6 +65,9 @@ import { FiltroProductorPipe } from './pipe/filtro-productor.pipe';
     ProductorRegistroComponent,
     CultivoConsultaComponent,
     FiltroProductorPipe,
+    CategoriaFAIConsultaComponent,
+    ItemFAIConsultaComponent,
+    ItemFAIRegistroComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
