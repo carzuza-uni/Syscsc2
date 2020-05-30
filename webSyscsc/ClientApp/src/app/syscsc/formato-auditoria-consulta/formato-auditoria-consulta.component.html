@@ -64,15 +64,14 @@
                             <th>Acción</th>
                         </thead>
                         <tbody>
-                            <tr *ngFor="let productor of productores; index as i ">
-                                <!--<th>{{ i + 1 }}</th>-->
+                            <!--<tr *ngFor="let productor of productores; index as i ">
                                 <td>{{ productor.nombrePredio}} </td>
                                 <td>{{ productor.cedula}}</td>
                                 <td>{{ productor.cedulaCafetera}}</td>
                                 <td>
                                 <a [routerLink]="['/productorDatosFamilia', productor.productorId]"><button class="btn btn-outline-info btn-sm">Ficha diagnostico</button></a>
                                 </td>
-                            </tr>
+                            </tr>-->
                         </tbody>                    
                     </table>
                 </div>

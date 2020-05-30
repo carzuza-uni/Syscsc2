@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./formato-auditoria-consulta.component.css']
 })
 export class FormatoAuditoriaConsultaComponent implements OnInit {
-
+  searchText: string;
   constructor() { }
 
   ngOnInit() {

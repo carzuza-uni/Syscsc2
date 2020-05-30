@@ -10,7 +10,7 @@ export class FiltroProductorPipe implements PipeTransform {
     if(searchText == null){
       return productor;
     }
-    return productor.filter(u => u.NombrePredio.toLowerCase().indexOf(searchText.toLowerCase()) !== -1 || u.Cedula.toLowerCase().indexOf(searchText.toLowerCase()) !== -1 || u.CedulaCafetera.toLowerCase().indexOf(searchText.toLowerCase()) !== -1 || u.CodigoFinca.toLowerCase().indexOf(searchText.toLowerCase()) !== -1 );
+    return productor.filter(u => u.nombrePredio.toLowerCase().indexOf(searchText.toLowerCase()) !== -1 || u.cedula.toLowerCase().indexOf(searchText.toLowerCase()) !== -1 || u.cedulaCafetera.toLowerCase().indexOf(searchText.toLowerCase()) !== -1 || u.codigoFinca.toLowerCase().indexOf(searchText.toLowerCase()) !== -1 );
   }
 
 }
