@@ -17,11 +17,11 @@ export class Usuario {
         let tipo = [];
         tipo[1] = 'Administrador';
         tipo[2] = 'Técnico';
-        this.tipoUsuarioNombre = tipo[this.tipoUsuario];
+        return tipo[this.tipoUsuario];
     }
 
     setNombreCompleto(){
-        this.nombreCompleto = this.primerNombre +' '+ this.segundoNombre +' '+ this.primerApellido +' '+ this.segundoApellido;
+        return this.primerNombre +' '+ this.segundoNombre +' '+ this.primerApellido +' '+ this.segundoApellido;
     }
 
     validarContrasena(){

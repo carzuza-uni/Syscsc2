@@ -25,8 +25,6 @@ namespace Logica
                 if(usurioBuscado != null){
                     return new GuardarUsuarioResponse("Error el usuario ya se encuentra registrado");
                 }
-                usuario.SetTipoUsuarioNombre();
-                usuario.SetNombreCompleto();
                 _context.Usuarios.Add(usuario);
                 _context.SaveChanges();
                 return new GuardarUsuarioResponse(usuario);
@@ -48,10 +46,10 @@ namespace Logica
 
     public class GuardarUsuarioResponse 
     {
-        public GuardarUsuarioResponse(Usuario usuario)
+        public GuardarUsuarioResponse(Usuario usuario1)
         {
             Error = false;
-            Usuario usuario1 = usuario;
+            usuario = usuario1;
         }
         public GuardarUsuarioResponse(string mensaje)
         {

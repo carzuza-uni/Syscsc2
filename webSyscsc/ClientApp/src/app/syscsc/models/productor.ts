@@ -1,13 +1,13 @@
 export class Productor {
-    ProductorId: number;
-    MunicipioId: number;
-    Nombre: string;
-    Cedula: string;
-    CedulaCafetera: string;
-    NombrePredio: string;
-    CodigoFinca: string;
-    CodigoSICA: string;
-    Actividades: string;
-    Telefono: string;
-    AfiliacionSalud: string;
+    productorId: number;
+    municipioId: number;
+    nombre: string;
+    cedula: string;
+    cedulaCafetera: string;
+    nombrePredio: string;
+    codigoFinca: string;
+    codigoSICA: string;
+    actividades: string;
+    telefono: string;
+    afiliacionSalud: string;
 }

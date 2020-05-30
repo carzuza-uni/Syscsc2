@@ -10,49 +10,49 @@
                         <div class="col-md-3 pr-1">                            
                             <div class="form-group">
                                 <label>Nombre del productor</label>
-                                <input type="text"  name="Nombre" [(ngModel)]="productor.Nombre" class="form-control" />
+                                <input type="text"  name="nombre" [(ngModel)]="productor.nombre" class="form-control" />
                                 
                             </div>
                         </div>
                         <div class="col-md-3 pr-1">
                             <div class="form-group">
                                 <label>Número de cédula</label>
-                                <input type="text"  name="Cedula" [(ngModel)]="productor.Cedula" class="form-control" />
+                                <input type="text"  name="cedula" [(ngModel)]="productor.cedula" class="form-control" />
                                 
                             </div>
                         </div>
                         <div class="col-md-3 pl-1">                            
                             <div class="form-group">
                                 <label>Número de cédula cafetera</label>
-                                <input type="text"  name="CedulaCafetera" [(ngModel)]="productor.CedulaCafetera" class="form-control" />
+                                <input type="text"  name="cedulaCafetera" [(ngModel)]="productor.cedulaCafetera" class="form-control" />
                                 
                             </div>
                         </div>
                         <div class="col-md-3 pr-1">                            
                             <div class="form-group">
                                 <label>Nombre del predio</label>
-                                <input type="text"  name="NombrePredio" [(ngModel)]="productor.NombrePredio" class="form-control" />
+                                <input type="text"  name="nombrePredio" [(ngModel)]="productor.nombrePredio" class="form-control" />
                                 
                             </div>
                         </div>
                         <div class="col-md-3 pr-1">                            
                             <div class="form-group">
                                 <label>Código Finca</label>
-                                <input type="text"  name="CodigoFinca" [(ngModel)]="productor.CodigoFinca" class="form-control" />
+                                <input type="text"  name="codigoFinca" [(ngModel)]="productor.codigoFinca" class="form-control" />
                                 
                             </div>
                         </div>
                         <div class="col-md-3 pr-1">                            
                             <div class="form-group">
                                 <label>Código SICA</label>
-                                <input type="text"  name="CodigoSICA" [(ngModel)]="productor.CodigoSICA" class="form-control" />
+                                <input type="text"  name="codigoSICA" [(ngModel)]="productor.codigoSICA" class="form-control" />
                                 
                             </div>
                         </div>
                         <div class="col-md-3 pl-1">
                             <div class="form-group">
                                 <label>Municipio</label>
-                                <select name="MunicipioId" [(ngModel)]="productor.MunicipioId" class="form-control" >
+                                <select name="municipioId" [(ngModel)]="productor.municipioId" class="form-control" >
                                     <option value="" style="display: none;">Seleccione una opción...</option>
                                     <option value="1">Valledupar</option>
                                 </select>
@@ -62,22 +62,25 @@
                         <div class="col-md-3 pr-1">                            
                             <div class="form-group">
                                 <label>Actividad(es) principal de ingresos</label>
-                                <input type="text"  name="Actividades" [(ngModel)]="productor.Actividades" class="form-control" />
+                                <input type="text"  name="actividades" [(ngModel)]="productor.actividades" class="form-control" />
                                 
                             </div>
                         </div>
                         <div class="col-md-3 pr-1">                            
                             <div class="form-group">
                                 <label>Teléfono</label>
-                                <input type="text"  name="Telefono" [(ngModel)]="productor.Telefono" class="form-control" />
+                                <input type="text"  name="telefono" [(ngModel)]="productor.telefono" class="form-control" />
                                 
                             </div>
                         </div>
                         <div class="col-md-3 pr-1">                            
                             <div class="form-group">
                                 <label>Afiliación salud</label>
-                                <input type="text"  name="AfiliacionSalud" [(ngModel)]="productor.AfiliacionSalud" class="form-control" />
-                                
+                                <select name="afiliacionSalud" [(ngModel)]="productor.afiliacionSalud" class="form-control">
+                                    <option value="" style="display: none;">Seleccione una opción...</option>
+                                    <option value="SI">SI</option>
+                                    <option value="NO">NO</option>
+                                </select>
                             </div>
                         </div>
                     </div>

@@ -55,7 +55,7 @@ const routes: Routes = [
   },
   {
       path: 'productorEditar/:id',
-      component: UsuarioRegistroComponent
+      component: ProductorRegistroComponent
   },
   {
       path: 'productorDetalle/:id',

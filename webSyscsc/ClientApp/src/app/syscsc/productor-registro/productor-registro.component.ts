@@ -10,31 +10,45 @@ import { Productor } from '../models/productor';
 })
 export class ProductorRegistroComponent implements OnInit {
   productor: Productor;
-  constructor(private route: ActivatedRoute, private productorService: ProductorService) { }
+  productorId;
+  constructor(private route: ActivatedRoute, private productorService: ProductorService) { 
+    this.productorId = route.snapshot.params['id'];
+    console.log('productorId', this.productorId);
+  }
 
   ngOnInit() {
     this.productor = new Productor();
+    if(this.productorId){
+      this.get();
+    }
   }
 
   add(){
-    this.productor.MunicipioId = Number(this.productor.MunicipioId);
+    this.productor.municipioId = Number(this.productor.municipioId);
     this.productorService.post(this.productor).subscribe(p => {
       if (p) {
-        this.productor.Nombre = '';
-        this.productor.MunicipioId = 0;
-        this.productor.Cedula = '';
-        this.productor.CedulaCafetera = '';
-        this.productor.NombrePredio = '';
-        this.productor.CodigoFinca = '';
-        this.productor.CodigoSICA = '';
-        this.productor.Actividades = '';
-        this.productor.Telefono = '';
-        this.productor.AfiliacionSalud = '';
+        this.productor.nombre = '';
+        this.productor.municipioId = 0;
+        this.productor.cedula = '';
+        this.productor.cedulaCafetera = '';
+        this.productor.nombrePredio = '';
+        this.productor.codigoFinca = '';
+        this.productor.codigoSICA = '';
+        this.productor.actividades = '';
+        this.productor.telefono = '';
+        this.productor.afiliacionSalud = '';
         alert('Registro realizado con exito!');
       }
     });
     
     
+  }
+
+  get(){
+    this.productorService.detalle(this.productorId).subscribe(result => {
+      this.productor = result;
+      console.log('productor', this.productor);
+    });
   }
 
 }

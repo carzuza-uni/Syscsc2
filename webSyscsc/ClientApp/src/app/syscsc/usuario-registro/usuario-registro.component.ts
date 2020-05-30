@@ -31,8 +31,10 @@ export class UsuarioRegistroComponent implements OnInit {
     this.usuario.tipoUsuario = Number(this.usuario.tipoUsuario);
     this.usuario.numeroCedula = ''+this.usuario.numeroCedula;
     this.usuario.telefono = ''+this.usuario.telefono;
+    this.usuario.tipoUsuarioNombre = this.usuario.setTipoUsuarioNombre();
+    this.usuario.nombreCompleto = this.usuario.setNombreCompleto();
     this.usuarioService.post(this.usuario).subscribe(p => {
-      if (!p) {
+      if (p) {
         this.usuario.tipoUsuario = null;
         this.usuario.primerNombre = '';
         this.usuario.segundoNombre = '';

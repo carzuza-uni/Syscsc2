@@ -40,10 +40,12 @@ namespace webSyscsc.Controllers
             var usuario = new Usuario
             {
                 TipoUsuario = usuarioInput.TipoUsuario,
+                TipoUsuarioNombre = usuarioInput.TipoUsuarioNombre,
                 PrimerNombre = usuarioInput.PrimerNombre,
                 SegundoNombre = usuarioInput.SegundoNombre,
                 PrimerApellido = usuarioInput.PrimerApellido,
                 SegundoApellido = usuarioInput.SegundoApellido,
+                NombreCompleto = usuarioInput.NombreCompleto,
                 NumeroCedula = usuarioInput.NumeroCedula,
                 UsuarioI = usuarioInput.UsuarioI,
                 Contrasena = usuarioInput.Contrasena,
