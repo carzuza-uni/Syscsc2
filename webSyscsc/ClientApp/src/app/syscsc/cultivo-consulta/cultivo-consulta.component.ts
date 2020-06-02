@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Cultivo } from '../models/cultivo';
 import { ActivatedRoute } from '@angular/router';
 import { CultivoService } from 'src/app/services/cultivo.service';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { AlertModalComponent } from 'src/app/@base/alert-modal/alert-modal.component';
 
 @Component({
   selector: 'app-cultivo-consulta',
@@ -12,7 +14,11 @@ export class CultivoConsultaComponent implements OnInit {
   cultivo: Cultivo;
   cultivos: Cultivo[];
   id;
-  constructor(private route: ActivatedRoute, private cultivoService: CultivoService) { }
+  constructor(
+    private route: ActivatedRoute, 
+    private cultivoService: CultivoService,
+    private modalService: NgbModal
+    ) { }
 
   ngOnInit() {
     this.cultivo = new Cultivo();
@@ -35,7 +41,9 @@ export class CultivoConsultaComponent implements OnInit {
       this.cultivoService.post(this.cultivo).subscribe(p => {
         if (p) {
           this.cultivo.nombre = '';
-          alert('Registro realizado con exito!');
+          /*const messageBox = this.modalService.open(AlertModalComponent);
+          messageBox.componentInstance.title = "Resultado Operación";
+          messageBox.componentInstance.message = 'Registro realizado con exito!';*/
         }
         this.get();
       });
@@ -49,10 +57,12 @@ export class CultivoConsultaComponent implements OnInit {
       return false;
     }
     this.cultivoService.put(this.id,this.cultivo).subscribe(p => {
-      if (!p) {
+      if (p) {
         this.cultivo.nombre = '';
         this.id = null;
-        alert('Registro realizado con exito!');
+        /*const messageBox = this.modalService.open(AlertModalComponent);
+        messageBox.componentInstance.title = "Resultado Operación";
+        messageBox.componentInstance.message = 'Actualización realizada con exito!';*/
       }
       this.get();
     });

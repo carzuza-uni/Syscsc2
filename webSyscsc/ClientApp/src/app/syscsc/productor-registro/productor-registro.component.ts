@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProductorService } from 'src/app/services/productor.service';
 import { Productor } from '../models/productor';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { AlertModalComponent } from 'src/app/@base/alert-modal/alert-modal.component';
 
 @Component({
   selector: 'app-productor-registro',
@@ -11,7 +13,11 @@ import { Productor } from '../models/productor';
 export class ProductorRegistroComponent implements OnInit {
   productor: Productor;
   productorId;
-  constructor(private route: ActivatedRoute, private productorService: ProductorService) { 
+  constructor(
+    private route: ActivatedRoute, 
+    private productorService: ProductorService, 
+    private modalService: NgbModal
+    ) { 
     this.productorId = route.snapshot.params['id'];
     console.log('productorId', this.productorId);
   }
@@ -37,7 +43,9 @@ export class ProductorRegistroComponent implements OnInit {
         this.productor.actividades = '';
         this.productor.telefono = '';
         this.productor.afiliacionSalud = '';
-        alert('Registro realizado con exito!');
+        const messageBox = this.modalService.open(AlertModalComponent);
+        messageBox.componentInstance.title = "Resultado Operación";
+        messageBox.componentInstance.message = 'Registro realizado con exito!';
       }
     });
     

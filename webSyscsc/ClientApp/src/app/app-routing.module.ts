@@ -19,8 +19,11 @@ import { ProductorRegistroComponent } from './syscsc/productor-registro/producto
 import { CultivoConsultaComponent } from './syscsc/cultivo-consulta/cultivo-consulta.component';
 import { CategoriaFAIConsultaComponent } from './syscsc/categoria-faiconsulta/categoria-faiconsulta.component';
 import { ItemFAIRegistroComponent } from './syscsc/item-fairegistro/item-fairegistro.component';
+import { LoginComponent } from './login/login.component';
+import { AuthGuard } from './services/auth.guard';
 
 const routes: Routes = [
+  { path: 'login', component: LoginComponent },
   {
       path: 'personaConsulta',
       component: PersonaConsultaComponent
@@ -31,7 +34,8 @@ const routes: Routes = [
   },
   {
       path: 'usuarioConsulta',
-      component: UsuarioConsultaComponent
+      component: UsuarioConsultaComponent,
+      canActivate: [AuthGuard]
   },
   {
     path: 'usuarioRegistro',

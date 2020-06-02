@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
@@ -37,6 +37,11 @@ import { FiltroProductorPipe } from './pipe/filtro-productor.pipe';
 import { CategoriaFAIConsultaComponent } from './syscsc/categoria-faiconsulta/categoria-faiconsulta.component';
 import { ItemFAIConsultaComponent } from './syscsc/item-faiconsulta/item-faiconsulta.component';
 import { ItemFAIRegistroComponent } from './syscsc/item-fairegistro/item-fairegistro.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AlertModalComponent } from './@base/alert-modal/alert-modal.component';
+import { LoginComponent } from './login/login.component';
+import { JwtInterceptor } from './services/jwt.interceptor';
+import { AuthGuard } from './services/auth.guard';
 
 @NgModule({
   declarations: [
@@ -68,19 +73,24 @@ import { ItemFAIRegistroComponent } from './syscsc/item-fairegistro/item-fairegi
     CategoriaFAIConsultaComponent,
     ItemFAIConsultaComponent,
     ItemFAIRegistroComponent,
+    AlertModalComponent,
+    LoginComponent,
   ],
   imports: [
+    ReactiveFormsModule,
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
     RouterModule.forRoot([
-      { path: '', component: HomeComponent, pathMatch: 'full' },
+      { path: '', component: HomeComponent, pathMatch: 'full', canActivate: [AuthGuard] },
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
     ]),
-    AppRoutingModule
+    AppRoutingModule,
+    NgbModule
   ],
-  providers: [PersonaService, UsuarioService],
+  entryComponents: [AlertModalComponent],
+  providers: [PersonaService, UsuarioService, { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -39,8 +39,12 @@ namespace Logica
         }
 
         public Usuario BuscarUsuario(string numeroCedula){            
-            Usuario usurioBuscado = _context.Usuarios.Find(numeroCedula);                
+            Usuario usurioBuscado = _context.Usuarios.Find(numeroCedula);
             return usurioBuscado;
+        }
+
+        public Usuario Validate(string usuario, string contrasena){
+            return _context.Usuarios.FirstOrDefault(u => u.UsuarioI == usuario && u.Contrasena == contrasena);
         }
     }
 

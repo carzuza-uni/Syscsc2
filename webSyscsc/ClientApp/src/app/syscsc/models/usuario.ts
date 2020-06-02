@@ -12,6 +12,7 @@ export class Usuario {
     confirmarContrasena: string;
     telefono: string;
     email: string;   
+    token: string;
 
     setTipoUsuarioNombre(){
         let tipo = [];
