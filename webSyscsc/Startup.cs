@@ -1,14 +1,18 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.Extensions.Hosting;
 using Datos;
 using Microsoft.EntityFrameworkCore;
 using MySQL.Data.EntityFrameworkCore;
 //using Microsoft.OpenApi.Models;
+using webSyscsc.Config;
+using System.Text;
 
 namespace my_new_app
 {
@@ -25,14 +29,37 @@ namespace my_new_app
         public void ConfigureServices(IServiceCollection services)
         {
             // Configurar cadena de Conexion con EF
-            var connectionString = Configuration.GetConnectionString("DefaultConnection");
-            services.AddDbContext<SyscscContext>(p=>p.UseMySQL(connectionString));
+            var connectionString = Configuration.GetConnectionString("DefaultConnection");
+            services.AddDbContext<SyscscContext>(p=>p.UseMySQL(connectionString));
 
             services.AddControllersWithViews();
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
             {
                 configuration.RootPath = "ClientApp/dist";
+            });
+
+            var appSettingsSection = Configuration.GetSection("AppSetting");
+            services.Configure<AppSetting>(appSettingsSection);
+
+            var appSettings = appSettingsSection.Get<AppSetting>();
+            var key = Encoding.ASCII.GetBytes(appSettings.Secret);
+            services.AddAuthentication(x =>
+            {
+                x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+
+            }).AddJwtBearer(x =>
+            {
+                x.RequireHttpsMetadata = false;
+                x.SaveToken = true;
+                x.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuerSigningKey = true,
+                    IssuerSigningKey = new SymmetricSecurityKey(key),                    
+                    ValidateIssuer = false,
+                    ValidateAudience = false,                    
+                };
             });
         }
 
@@ -58,6 +85,14 @@ namespace my_new_app
             }
 
             app.UseRouting();
+
+            app.UseCors(option => option
+               .AllowAnyOrigin()
+               .AllowAnyMethod()
+               .AllowAnyHeader());
+
+            app.UseAuthentication();
+            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {

@@ -36,11 +36,13 @@ export class HandleHttpErrorService {
 
   private mostrarError400(error: any): void {
     console.error(error);
+    console.log('error', error);
     let contadorValidaciones: number = 0;
     let mensajeValidaciones: string =
     `Señor(a) usuario(a), se han presentado algunos errores de validación, por favor revíselos y vuelva a realizar la operación.<br/><br/>`;
-
+    
     for (const prop in error.error.errors) {
+      console.log('prop', prop);
       contadorValidaciones++;
       mensajeValidaciones += `<strong>${contadorValidaciones}. ${prop}:</strong>`;
 

@@ -2,13 +2,17 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Options;
 using webSyscsc.Models;
 using Entity;
 using Logica;
 using Datos;
+using webSyscsc.Config;
+using webSyscsc.Service;
 
 namespace webSyscsc.Controllers
 {
@@ -17,10 +21,9 @@ namespace webSyscsc.Controllers
     [Route("api/[controller]")]
     public class LoginController : ControllerBase
     {
-        private ServicioJwt _servicioJwt;
+        private JwtService _jwtService;
         private readonly UsuarioService _usuarioService;
-
-        private readonly SyscscContext _context;
+        
         public LoginController(SyscscContext context, IOptions<AppSetting> appSettings)
         {
             /*
@@ -32,7 +35,7 @@ namespace webSyscsc.Controllers
                 var i = _context.SaveChanges();
             }
             */
-            _servicioJwt = new ServicioJwt(appSettings);            
+            _jwtService = new JwtService(appSettings);            
             _usuarioService = new UsuarioService(context);
         }
 
@@ -44,14 +47,14 @@ namespace webSyscsc.Controllers
 
             if (user == null)
             {
-                ModelState.AddModelError("Acceso Denegado", "Username or password is incorrect");
+                ModelState.AddModelError("Acceso Denegado", "Usuario y/o Contraseña es incorrecta");
                 var problemDetails = new ValidationProblemDetails(ModelState)
                 {
                     Status = StatusCodes.Status400BadRequest,
                 };
                 return BadRequest(problemDetails);
             }
-            var response = _servicioJwt.GenerarToken(user);
+            var response = _jwtService.GenerarToken(user);
 
             return Ok(response);
         }

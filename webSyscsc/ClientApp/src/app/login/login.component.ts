@@ -57,7 +57,20 @@ export class LoginComponent implements OnInit {
         error => {
           const modalRef = this.modalService.open(AlertModalComponent);
           modalRef.componentInstance.title = 'Acceso Denegado';
-          modalRef.componentInstance.message = error.error;
+          let contadorValidaciones: number = 0;
+          let mensajeValidaciones: string = 'Señor(a) usuario(a), se han presentado algunos errores de validación, por favor revíselos y vuelva a realizar la operación.<br/><br/>';
+          
+          for (const prop in error.error.errors) {
+            contadorValidaciones++;
+            mensajeValidaciones += `<strong>${contadorValidaciones}. ${prop}:</strong>`;
+      
+            error.error.errors[prop].forEach(element => {
+              mensajeValidaciones += `<br/> - ${element}`;
+            });
+      
+            mensajeValidaciones += `<br/>`;
+          }
+          modalRef.componentInstance.message = mensajeValidaciones;
           this.loading = false;
       });
   }

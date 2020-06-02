@@ -1,11 +1,10 @@
+using Entity;
+
 namespace webSyscsc.Models
 {
     public class LoginInputModel
     {
-        [Required(ErrorMessage = "El usuario es requerido")]
         public string UsuarioI { get; set; }
-
-        [Required(ErrorMessage = "La contraseña es requerida")]
         public string Contrasena { get; set; }
         public string Token { get; set; }
     }
@@ -29,7 +28,6 @@ namespace webSyscsc.Models
             UsuarioI = usuario.UsuarioI;
             Telefono = usuario.Telefono;
             Email = usuario.Email;
-            Token = usuario.Token;
         }
         public int TipoUsuario { get; set; }
         public string TipoUsuarioNombre { get; set; } 
