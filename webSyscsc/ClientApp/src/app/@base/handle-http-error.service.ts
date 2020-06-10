@@ -36,23 +36,22 @@ export class HandleHttpErrorService {
 
   private mostrarError400(error: any): void {
     console.error(error);
-    console.log('error', error);
     let contadorValidaciones: number = 0;
     let mensajeValidaciones: string =
     `Señor(a) usuario(a), se han presentado algunos errores de validación, por favor revíselos y vuelva a realizar la operación.<br/><br/>`;
-    
-    for (const prop in error.error.errors) {
-      console.log('prop', prop);
-      contadorValidaciones++;
-      mensajeValidaciones += `<strong>${contadorValidaciones}. ${prop}:</strong>`;
+    if(error.error){      
+      for (const prop in error.error.errors) {
+        console.log('prop', prop);
+        contadorValidaciones++;
+        mensajeValidaciones += `<strong>${contadorValidaciones}. ${prop}:</strong>`;
 
-      error.error.errors[prop].forEach(element => {
-        mensajeValidaciones += `<br/> - ${element}`;
-      });
+        error.error.errors[prop].forEach(element => {
+          mensajeValidaciones += `<br/> - ${element}`;
+        });
 
-      mensajeValidaciones += `<br/>`;
+        mensajeValidaciones += `<br/>`;
+      }
     }
-
     const modalRef = this.modalService.open(AlertModalComponent);
     modalRef.componentInstance.title = 'Mensaje de Error';
     modalRef.componentInstance.message = mensajeValidaciones;

@@ -1,0 +1,12 @@
+C:\Users\Carlos\Desktop\proyectos_uni\proyectos_git\Syscsc2\Datos\bin\Release\netstandard2.1\Datos.deps.json
+C:\Users\Carlos\Desktop\proyectos_uni\proyectos_git\Syscsc2\Datos\bin\Release\netstandard2.1\Datos.dll
+C:\Users\Carlos\Desktop\proyectos_uni\proyectos_git\Syscsc2\Datos\bin\Release\netstandard2.1\Datos.pdb
+C:\Users\Carlos\Desktop\proyectos_uni\proyectos_git\Syscsc2\Datos\bin\Release\netstandard2.1\Entity.dll
+C:\Users\Carlos\Desktop\proyectos_uni\proyectos_git\Syscsc2\Datos\bin\Release\netstandard2.1\Entity.pdb
+C:\Users\Carlos\Desktop\proyectos_uni\proyectos_git\Syscsc2\Datos\obj\Release\netstandard2.1\Datos.csprojAssemblyReference.cache
+C:\Users\Carlos\Desktop\proyectos_uni\proyectos_git\Syscsc2\Datos\obj\Release\netstandard2.1\Datos.csproj.CoreCompileInputs.cache
+C:\Users\Carlos\Desktop\proyectos_uni\proyectos_git\Syscsc2\Datos\obj\Release\netstandard2.1\Datos.AssemblyInfoInputs.cache
+C:\Users\Carlos\Desktop\proyectos_uni\proyectos_git\Syscsc2\Datos\obj\Release\netstandard2.1\Datos.AssemblyInfo.cs
+C:\Users\Carlos\Desktop\proyectos_uni\proyectos_git\Syscsc2\Datos\obj\Release\netstandard2.1\Datos.csproj.CopyComplete
+C:\Users\Carlos\Desktop\proyectos_uni\proyectos_git\Syscsc2\Datos\obj\Release\netstandard2.1\Datos.dll
+C:\Users\Carlos\Desktop\proyectos_uni\proyectos_git\Syscsc2\Datos\obj\Release\netstandard2.1\Datos.pdb
