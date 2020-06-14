@@ -20,6 +20,7 @@ export class ProductorDetalleComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.productor = new Productor();
     this.get();
   }
 

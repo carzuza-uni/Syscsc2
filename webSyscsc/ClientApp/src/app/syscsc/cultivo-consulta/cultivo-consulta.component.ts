@@ -48,7 +48,6 @@ export class CultivoConsultaComponent implements OnInit {
         this.get();
       });
     }
-    
   }
 
   put(){

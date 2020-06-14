@@ -1,45 +1,51 @@
 <div class="card card-user">
     <div class="image">
-    <img src="../assets/img/bg5.jpg" alt="...">
+        <img src="../assets/img/bg5.jpg" alt="...">
     </div>
     <div class="card-body">
-    <div class="author">
-        <a href="#">
-        <img class="avatar border-gray" src="../assets/img/default-avatar.png" alt="...">
-        <h5 class="title">{{ productor.nombre }}</h5>
-        </a>
-        <p class="description">
-            Num. cédula: <strong>{{ productor.cedula }}</strong>
-        </p>
-    </div>
-    <div class="description text-center">
-        <ul class="list-group">            
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-                Num. cédula cafetera: <strong>{{ productor.cedulaCafetera }}</strong>
-            </li>
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-                Nombre predio: <strong>{{ productor.nombrePredio }}</strong>
-            </li>
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-                Código Finca: <strong>{{ productor.codigoFinca }}</strong>
-            </li>
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-                Código SICA: <strong>{{ productor.codigoSICA }}</strong>
-            </li>
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-                Municipio: <strong>{{ productor.municipioId }}</strong>
-            </li>
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-                Actividad(es): <strong>{{ productor.actividades }}</strong>
-            </li>
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-                Teléfono: <strong>{{ productor.telefono }}</strong>
-            </li>
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-                Afiliación salud: <strong>{{ productor.afiliacionSalud }}</strong>
-            </li>
-        </ul>
-    </div>
+        <div class="author">
+            <a>
+            <img class="avatar border-gray" src="../assets/img/default-avatar.png" alt="...">
+            <h5 class="title">{{ productor.nombre }}</h5>
+            </a>
+            <p class="description">
+                Num. cédula: <strong>{{ productor.cedula }}</strong>
+            </p>
+        </div>
+        <div class="description text-center">
+            <div class="row">
+                <ul class="list-group col-md-4">
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        Num. cédula cafetera: <strong>{{ productor.cedulaCafetera }}</strong>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        Nombre predio: <strong>{{ productor.nombrePredio }}</strong>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        Código Finca: <strong>{{ productor.codigoFinca }}</strong>
+                    </li>                
+                </ul>
+                <ul class="list-group col-md-4">
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        Código SICA: <strong>{{ productor.codigoSICA }}</strong>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        Municipio: <strong>{{ productor.municipioId }}</strong>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        Teléfono: <strong>{{ productor.telefono }}</strong>
+                    </li>
+                </ul>
+                <ul class="list-group col-md-4">
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        Afiliación salud: <strong>{{ productor.afiliacionSalud }}</strong>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        Actividad(es): <strong>{{ productor.actividades }}</strong>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </div>
     <!--<div class="card-footer">
         <hr>

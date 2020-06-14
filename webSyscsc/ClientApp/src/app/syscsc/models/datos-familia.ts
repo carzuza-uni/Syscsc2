@@ -1,10 +1,10 @@
 export class DatosFamilia {
-    Identificacion: number;
-    ProductorId: number;
-    Nombre: string;
-    FechaNacimiento: string;
-    Parentesco: string;
-    TipoPoblacion: string;
-    AfilicionSalud: string;
-    NivelEducativo: string;
+    identificacion: number;
+    productorId: number;
+    nombre: string;
+    fechaNacimiento: string;
+    parentesco: string;
+    tipoPoblacion: string;
+    afilicionSalud: string;
+    nivelEducativo: string;
 }

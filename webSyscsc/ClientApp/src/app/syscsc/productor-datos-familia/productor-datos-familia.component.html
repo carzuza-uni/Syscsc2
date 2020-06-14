@@ -1,8 +1,8 @@
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-12">
         <app-productor-detalle></app-productor-detalle>
     </div>
-    <div class="col-md-8">
+    <div class="col-md-12">
         <div class="card card-user">
             <div class="card-header">
                 <h5 class="card-title">Informacion</h5>
@@ -11,23 +11,23 @@
                 <app-nav-menu-productor></app-nav-menu-productor>
                 <div class="row">
                     <div class="col-md-12">
-                        <form>
+                        <form [formGroup]="formGroup">
                             <div class="row">
                                 <div class="form-group col-md-3">
                                     <label>Identificción</label>
-                                    <input type="text" class="form-control">
+                                    <input type="text" name="identificacion" [(ngModel)]="datosFamilia.identificacionForm" formControlName="identificacion" class="form-control" [ngClass]="{ 'is-invalid':  control.identificacion.errors  && control.identificacion.touched}">
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label>Nombre</label>
-                                    <input type="text" class="form-control">
+                                    <input type="text" name="nombre" [(ngModel)]="datosFamilia.nombre" formControlName="nombre" class="form-control" [ngClass]="{ 'is-invalid':  control.nombre.errors  && control.nombre.touched}">
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label>Fecha de nacimiento</label>
-                                    <input type="date" class="form-control">
+                                    <input type="date" name="fechaNacimiento" [(ngModel)]="datosFamilia.fechaNacimiento" formControlName="fechaNacimiento" class="form-control" [ngClass]="{ 'is-invalid':  control.fechaNacimiento.errors  && control.fechaNacimiento.touched}">
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label>Parentesco</label>
-                                    <select class="form-control">
+                                    <select name="parentesco" [(ngModel)]="datosFamilia.parentesco" formControlName="parentesco" class="form-control" [ngClass]="{ 'is-invalid':  control.parentesco.errors  && control.parentesco.touched}">
                                         <option value="" style="display: none;">Seleccione una opción...</option>
                                         <option value="Hijo (a)">Hijo (a)</option>
                                         <option value="Padre">Padre</option>
@@ -42,11 +42,11 @@
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label>Tipo de poblacion</label>
-                                    <input type="text" class="form-control">
+                                    <input type="text" name="tipoPoblacion" [(ngModel)]="datosFamilia.tipoPoblacion" formControlName="tipoPoblacion" class="form-control" [ngClass]="{ 'is-invalid':  control.tipoPoblacion.errors  && control.tipoPoblacion.touched}">
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label>Afilición salud</label>
-                                    <select class="form-control">
+                                    <select name="afilicionSalud" [(ngModel)]="datosFamilia.afilicionSalud" formControlName="afilicionSalud" class="form-control" [ngClass]="{ 'is-invalid':  control.afilicionSalud.errors  && control.afilicionSalud.touched}">
                                         <option value="" style="display: none;">Seleccione una opción...</option>
                                         <option value="SI">SI</option>
                                         <option value="NO">NO</option>
@@ -54,7 +54,7 @@
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label>Nivel educativo</label>
-                                    <select class="form-control">
+                                    <select name="nivelEducativo" [(ngModel)]="datosFamilia.nivelEducativo" formControlName="nivelEducativo" class="form-control" [ngClass]="{ 'is-invalid':  control.nivelEducativo.errors  && control.nivelEducativo.touched}">
                                         <option value="" style="display: none;">Seleccione una opción...</option>
                                         <option value="Ninguno">Ninguno</option>
                                         <option value="Preescolar">Preescolar</option>
@@ -68,7 +68,7 @@
                             </div>  
                             <div class="row">
                                 <div class="update ml-auto mr-auto">
-                                    <button class="btn btn-outline-success">Guardar</button>
+                                    <button class="btn btn-outline-success"  (click)="onSubmit()" [disabled]="formGroup.invalid">Guardar</button>
                                     <button type="reset" class="btn btn-outline-secondary">Cancelar</button>                            
                                 </div>
                             </div>
@@ -81,24 +81,20 @@
                               <thead class=" text-primary">
                                   <th>Identificción</th>
                                   <th>Nombre</th>
-                                  <!--<th>Fecha de nac.</th>-->
+                                  <th>Fecha de nac.</th>
                                   <th>Parentesco</th>
-                                  <!--<th>Tipo de poblacion</th>-->
                                   <th>Afilición salud</th>
-                                  <!--<th>Nivel educativo</th>-->
                                   <th>Acción</th>
                               </thead>
                               <tbody>
-                                  <tr>
-                                        <td>123456</td>
-                                        <th>Carlos</th>                                      
-                                        <!--<td>1996-08-01</td>-->
-                                        <td>Hermano (a)</td>
-                                        <!--<td>Poblacion</td>-->
-                                        <td>SI</td>
-                                        <!--<td>Universitario</td>-->
+                                  <tr *ngFor="let d of datosFamilias; index as i ">
+                                        <td>{{ d.identificacion }}</td>
+                                        <th>{{ d.nombre }}</th>
+                                        <th>{{ d.fechaNacimiento }}</th>
+                                        <td>{{ d.parentesco }}</td>
+                                        <td>{{ d.afilicionSalud }}</td>
                                         <td>
-                                            <button class="btn btn-outline-info btn-sm">Ver</button>
+                                            <button class="btn btn-outline-info btn-sm" (click)="editar(i)">editar</button>
                                         </td>
                                   </tr>
                               </tbody>                    

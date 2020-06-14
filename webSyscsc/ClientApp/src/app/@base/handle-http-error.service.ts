@@ -29,9 +29,11 @@ export class HandleHttpErrorService {
 
   public log(message: string) {
     console.log(message);
+    /*
     const messageBox = this.modalService.open(AlertModalComponent)
-    messageBox.componentInstance.title = 'Resultado Operación';
-    messageBox.componentInstance.message = message;
+    messageBox.componentInstance.title = 'Resultado Operación';
+    messageBox.componentInstance.message = message;
+    */
   }
 
   private mostrarError400(error: any): void {

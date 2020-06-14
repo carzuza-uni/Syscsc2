@@ -22,8 +22,12 @@ namespace Logica
                 if(datosFamiliaB != null){
                     return new GuardarDatosFamiliaResponse("Error el datos Familia ya se encuentra registrado");
                 }
-                var p = _context.Productores.Find(datosFamilia.ProductorId);                
-                p.DatosFamilias.Add(datosFamilia);
+                var p = _context.Productores.Find(datosFamilia.ProductorId);  
+                if(p == null){
+                    return new GuardarDatosFamiliaResponse("Error el productor no se encuentra registrado");
+                }            
+                //return new GuardarDatosFamiliaResponse(datosFamilia);  
+                _context.DatosFamilias.Add(datosFamilia);
                 _context.SaveChanges();
                 return new GuardarDatosFamiliaResponse(datosFamilia);
             }catch(Exception e){ 
