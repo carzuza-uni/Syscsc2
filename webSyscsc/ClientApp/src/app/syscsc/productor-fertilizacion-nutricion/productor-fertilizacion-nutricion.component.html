@@ -23,44 +23,44 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <h4 class="card-title">Insumos externos utilizados en la finca</h4>
-                                <form>
+                                <form [formGroup]="formGroupExterno">
                                     <div class="row">
                                         <div class="form-group col-md-3">
                                             <label>Nombre comercial</label>
-                                            <input type="text" class="form-control">
+                                            <input type="text" name="nombre" [(ngModel)]="insumoExterno.nombre" formControlName="nombre" class="form-control" [ngClass]="{ 'is-invalid': controlExterno.nombre.errors  && controlExterno.nombre.touched}">
                                         </div>
                                         <div class="form-group col-md-3">
                                             <label>Proveedor o fabricante</label>
-                                            <input type="text" class="form-control">
+                                            <input type="text" name="fabricante" [(ngModel)]="insumoExterno.fabricante" formControlName="fabricante" class="form-control" [ngClass]="{ 'is-invalid': controlExterno.fabricante.errors  && controlExterno.fabricante.touched}">
                                         </div>
                                         <div class="form-group col-md-3">
                                             <label>Registro ICA</label>
-                                            <input type="text" class="form-control">
+                                            <input type="text" name="registroICA" [(ngModel)]="insumoExterno.registroICA" formControlName="registroICA" class="form-control" [ngClass]="{ 'is-invalid': controlExterno.registroICA.errors  && controlExterno.registroICA.touched}">
                                         </div>
                                         <div class="form-group col-md-3">
                                             <label>Composición</label>
-                                            <input type="text" class="form-control">
+                                            <input type="text" name="composicion" [(ngModel)]="insumoExterno.composicion" formControlName="composicion" class="form-control" [ngClass]="{ 'is-invalid': controlExterno.composicion.errors  && controlExterno.composicion.touched}">
                                         </div>
                                         <div class="form-group col-md-3">
                                             <label>Dosis</label>
-                                            <input type="text" class="form-control">
+                                            <input type="text" name="dosis" [(ngModel)]="insumoExterno.dosis" formControlName="dosis" class="form-control" [ngClass]="{ 'is-invalid': controlExterno.dosis.errors  && controlExterno.dosis.touched}">
                                         </div>
                                         <div class="form-group col-md-3">
                                             <label>Cantidad aplicada en el ultimo año</label>
-                                            <input type="text" class="form-control">
+                                            <input type="text" name="cantidad" [(ngModel)]="insumoExterno.cantidad" formControlName="cantidad" class="form-control" [ngClass]="{ 'is-invalid': controlExterno.cantidad.errors  && controlExterno.cantidad.touched}">
                                         </div>
                                         <div class="form-group col-md-3">
                                             <label>Fecha de aplicación</label>
-                                            <input type="date" class="form-control">
+                                            <input type="date" name="fechaAplicacion" [(ngModel)]="insumoExterno.fechaAplicacion" formControlName="fechaAplicacion" class="form-control" [ngClass]="{ 'is-invalid': controlExterno.fechaAplicacion.errors  && controlExterno.fechaAplicacion.touched}">
                                         </div>
                                         <div class="form-group col-md-3">
                                             <label>Lugar de aplicación</label>
-                                            <input type="text" class="form-control">
+                                            <input type="text" name="lugarAplicacion" [(ngModel)]="insumoExterno.lugarAplicacion" formControlName="lugarAplicacion" class="form-control" [ngClass]="{ 'is-invalid': controlExterno.lugarAplicacion.errors  && controlExterno.lugarAplicacion.touched}">
                                         </div>
                                     </div>  
                                     <div class="row">
                                         <div class="update ml-auto mr-auto">
-                                            <button class="btn btn-outline-success">Guardar</button>
+                                            <button class="btn btn-outline-success" (click)="onSubmitExterno()" [disabled]="formGroupExterno.invalid">Guardar</button>
                                             <button type="reset" class="btn btn-outline-secondary">Cancelar</button>                            
                                         </div>
                                     </div>
@@ -70,24 +70,24 @@
                                 <h4 class="card-title">Listado</h4>
                                 <div class="table-responsive">
                                     <table class="table">
-                                      <thead class=" text-primary">
-                                          <th>Nombre comercial</th>
-                                          <th>Proveedor o fabricante</th>
-                                          <th>Registro ICA</th>
-                                          <th>Composición</th>
-                                          <th>Acción</th>
-                                      </thead>
-                                      <tbody>
-                                          <tr>
-                                                <td>Comercial 1</td>
-                                                <th>Proveedor 1</th>
-                                                <td>Registro</td>
-                                                <td>composicion</td>
+                                        <thead class=" text-primary">
+                                            <th>Nombre comercial</th>
+                                            <th>Proveedor o fabricante</th>
+                                            <th>Registro ICA</th>
+                                            <th>Composición</th>
+                                            <th>Acción</th>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor="let e of insumoExternos; index as i ">
+                                                <td>{{ e.nombre }}</td>
+                                                <th>{{ e.fabricante }}</th>
+                                                <td>{{ e.registroICA }}</td>
+                                                <td>{{ e.composicion }}</td>
                                                 <td>
-                                                    <button class="btn btn-outline-info btn-sm">Ver</button>
+                                                    <button class="btn btn-outline-info btn-sm" (click)="editarExterno(i)">Editar</button>
                                                 </td>
-                                          </tr>
-                                      </tbody>                    
+                                            </tr>
+                                        </tbody>                    
                                     </table>
                                 </div>
                             </div>
@@ -97,48 +97,48 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <h4 class="card-title">Insumos internos preparados en la finca</h4>
-                                <form>
+                                <form [formGroup]="formGroupInterno">
                                     <div class="row">
                                         <div class="form-group col-md-3">
                                             <label>Nombre del insumo</label>
-                                            <input type="text" class="form-control">
+                                            <input type="text" name="nombre" [(ngModel)]="insumoInterno.nombre" formControlName="nombre" class="form-control" [ngClass]="{ 'is-invalid': controlInterno.nombre.errors  && controlInterno.nombre.touched}">
                                         </div>
                                         <div class="form-group col-md-3">
                                             <label>Materiales usados</label>
-                                            <input type="text" class="form-control">
+                                            <input type="text" name="materialesUsado" [(ngModel)]="insumoInterno.materialesUsado" formControlName="materialesUsado" class="form-control" [ngClass]="{ 'is-invalid': controlInterno.materialesUsado.errors  && controlInterno.materialesUsado.touched}">
                                         </div>
                                         <div class="form-group col-md-3">
                                             <label>Procedimiento</label>
-                                            <input type="text" class="form-control">
+                                            <input type="text" name="procedimiento" [(ngModel)]="insumoInterno.procedimiento" formControlName="procedimiento" class="form-control" [ngClass]="{ 'is-invalid': controlInterno.procedimiento.errors  && controlInterno.procedimiento.touched}">
                                         </div>
                                         <div class="form-group col-md-3">
                                             <label>Tiempo de praparación</label>
-                                            <input type="text" class="form-control">
+                                            <input type="text" name="tiempoPreparacion" [(ngModel)]="insumoInterno.tiempoPreparacion" formControlName="tiempoPreparacion" class="form-control" [ngClass]="{ 'is-invalid': controlInterno.tiempoPreparacion.errors  && controlInterno.tiempoPreparacion.touched}">
                                         </div>
                                         <div class="form-group col-md-3">
                                             <label>Metodo de praparación</label>
-                                            <input type="text" class="form-control">
+                                            <input type="text" name="metodoPreparacion" [(ngModel)]="insumoInterno.metodoPreparacion" formControlName="metodoPreparacion" class="form-control" [ngClass]="{ 'is-invalid': controlInterno.metodoPreparacion.errors  && controlInterno.metodoPreparacion.touched}">
                                         </div>
                                         <div class="form-group col-md-3">
                                             <label>Dosis</label>
-                                            <input type="text" class="form-control">
+                                            <input type="text" name="dosis" [(ngModel)]="insumoInterno.dosis" formControlName="dosis" class="form-control" [ngClass]="{ 'is-invalid': controlInterno.dosis.errors  && controlInterno.dosis.touched}">
                                         </div>
                                         <div class="form-group col-md-3">
                                             <label>Cantidad usada en el ultimo año</label>
-                                            <input type="text" class="form-control">
+                                            <input type="text" name="cantidad" [(ngModel)]="insumoInterno.cantidad" formControlName="cantidad" class="form-control" [ngClass]="{ 'is-invalid': controlInterno.cantidad.errors  && controlInterno.cantidad.touched}">
                                         </div>
                                         <div class="form-group col-md-3">
                                             <label>Fecha de aplicación</label>
-                                            <input type="date" class="form-control">
+                                            <input type="date" name="fechaAplicacion" [(ngModel)]="insumoInterno.fechaAplicacion" formControlName="fechaAplicacion" class="form-control" [ngClass]="{ 'is-invalid': controlInterno.fechaAplicacion.errors  && controlInterno.fechaAplicacion.touched}">
                                         </div>
                                         <div class="form-group col-md-3">
                                             <label>Lugar de aplicación</label>
-                                            <input type="text" class="form-control">
+                                            <input type="text" name="lugarAplicacion" [(ngModel)]="insumoInterno.lugarAplicacion" formControlName="lugarAplicacion" class="form-control" [ngClass]="{ 'is-invalid': controlInterno.lugarAplicacion.errors  && controlInterno.lugarAplicacion.touched}">
                                         </div>
                                     </div>  
                                     <div class="row">
                                         <div class="update ml-auto mr-auto">
-                                            <button class="btn btn-outline-success">Guardar</button>
+                                            <button class="btn btn-outline-success" (click)="onSubmitInterno()" [disabled]="formGroupInterno.invalid">Guardar</button>
                                             <button type="reset" class="btn btn-outline-secondary">Cancelar</button>                            
                                         </div>
                                     </div>
@@ -148,24 +148,24 @@
                                 <h4 class="card-title">Listado</h4>
                                 <div class="table-responsive">
                                     <table class="table">
-                                      <thead class=" text-primary">
-                                          <th>Nombre del insumo</th>
-                                          <th>materiales usados</th>
-                                          <th>Procedimiento</th>
-                                          <th>Tiempo de praparación</th>
-                                          <th>Acción</th>
-                                      </thead>
-                                      <tbody>
-                                          <tr>
-                                                <td>Insumo 1</td>
-                                                <th>material 1</th>
-                                                <td>Procedimiento</td>
-                                                <td>30 min</td>
+                                        <thead class=" text-primary">
+                                            <th>Nombre del insumo</th>
+                                            <th>Materiales usados</th>
+                                            <th>Procedimiento</th>
+                                            <th>Tiempo de praparación</th>
+                                            <th>Acción</th>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor="let e of insumoInternos; index as i ">
+                                                <td>{{ e.nombre }}</td>
+                                                <th>{{ e.materialesUsado }}</th>
+                                                <td>{{ e.procedimiento }}</td>
+                                                <td>{{ e.tiempoPreparacion }}</td>
                                                 <td>
-                                                    <button class="btn btn-outline-info btn-sm">Ver</button>
+                                                    <button class="btn btn-outline-info btn-sm" (click)="editarInterno(i)">Editar</button>
                                                 </td>
-                                          </tr>
-                                      </tbody>                    
+                                            </tr>
+                                        </tbody>                    
                                     </table>
                                 </div>
                             </div>

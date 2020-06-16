@@ -1,5 +1,6 @@
 using System;
 using System.ComponentModel.DataAnnotations;
+using System.Collections.Generic;
 
 namespace Entity
 {
@@ -20,5 +21,8 @@ namespace Entity
         public string Tipo { get; set; }
         public string Estado { get; set; }
         public string Observaciones { get; set; }
+
+        public List<UsoSuelo> UsoSuelos { get; } = new List<UsoSuelo>();
+        public List<ManejoCultivo> ManejoCultivos { get; } = new List<ManejoCultivo>();
     }
 }

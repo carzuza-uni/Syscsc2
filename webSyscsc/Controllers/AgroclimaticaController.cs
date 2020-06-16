@@ -69,11 +69,11 @@ namespace webSyscsc.Controllers
         // GET: api/Agroclimatica/5
         [HttpGet("{id}")]
         public ActionResult<AgroclimaticaViewModel> get(int id){
-            var agroclimaticas = _agroclimaticaService.Obtener(id);
-            if(agroclimaticas == null){
+            var agroclimatica = _agroclimaticaService.Obtener(id);
+            if(agroclimatica == null){
                 return null;
             }
-            AgroclimaticaViewModel c = new AgroclimaticaViewModel(agroclimaticas);
+            AgroclimaticaViewModel c = new AgroclimaticaViewModel(agroclimatica);
             return c;
         }
     }

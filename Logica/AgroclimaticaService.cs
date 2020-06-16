@@ -18,12 +18,16 @@ namespace Logica
 
         public GuardarAgroclimaticaResponse Guardar(Agroclimatica agroclimatica){
             try{
-                /*var agroclimaticaB = _context.Agroclimaticas.Find(agroclimatica.Identificacion);
+                var agroclimaticaB = _context.Agroclimaticas.Find(agroclimatica.AgroclimaticaId);
                 if(agroclimaticaB != null){
-                    return new GuardarAgroclimaticaResponse("Error el agroclimatica ya se encuentra registrado");
-                }*/
-                var p = _context.Productores.Find(agroclimatica.ProductorId);                
-                p.Agroclimatica = agroclimatica;
+                    return new GuardarAgroclimaticaResponse("Error la agroclimatica ya se encuentra registrada");
+                }
+                var p = _context.Productores.Find(agroclimatica.ProductorId);       
+                if(p == null){
+                    return new GuardarAgroclimaticaResponse("Error el productor no se encuentra registrado");
+                }
+                //p.Agroclimatica = agroclimatica;
+                _context.Agroclimaticas.Add(agroclimatica);
                 _context.SaveChanges();
                 return new GuardarAgroclimaticaResponse(agroclimatica);
             }catch(Exception e){ 
@@ -61,8 +65,11 @@ namespace Logica
         }
 
         public Agroclimatica Obtener(int id){  
-            var agroclimatica = _context.Agroclimaticas.Single(a => a.ProductorId == id);
-            return agroclimatica;
+            var p = _context.Productores.Include(p => p.Agroclimatica).Where(d => d.ProductorId == id).First();
+            if(p == null){
+                return null;
+            }
+            return p.Agroclimatica;
         }
     }
 
