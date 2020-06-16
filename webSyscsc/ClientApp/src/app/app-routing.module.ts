@@ -21,6 +21,7 @@ import { CategoriaFAIConsultaComponent } from './syscsc/categoria-faiconsulta/ca
 import { ItemFAIRegistroComponent } from './syscsc/item-fairegistro/item-fairegistro.component';
 import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './services/auth.guard';
+import { AuthAdminGuard } from './services/auth-admin.guard';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -35,79 +36,97 @@ const routes: Routes = [
   {
       path: 'usuarioConsulta',
       component: UsuarioConsultaComponent,
-      canActivate: [AuthGuard]
+      canActivate: [AuthAdminGuard]
   },
   {
     path: 'usuarioRegistro',
-    component: UsuarioRegistroComponent
+    component: UsuarioRegistroComponent,
+    canActivate: [AuthAdminGuard]
   },
   {
       path: 'usuarioEditar/:id',
-      component: UsuarioRegistroComponent
+      component: UsuarioRegistroComponent,
+      canActivate: [AuthAdminGuard]
   },
   {
-    path: 'usuarioDetalle/:id',
-    component: UsuarioRegistroComponent
+      path: 'usuarioDetalle/:id',
+      component: UsuarioRegistroComponent,
+      canActivate: [AuthAdminGuard]
   },
   {
       path: 'productorConsulta',
-      component: ProductorConsultaComponent
+      component: ProductorConsultaComponent,
+      canActivate: [AuthGuard]
   },
   {
       path: 'productorRegistro',
-      component: ProductorRegistroComponent
+      component: ProductorRegistroComponent,
+      canActivate: [AuthGuard]
   },
   {
       path: 'productorEditar/:id',
-      component: ProductorRegistroComponent
+      component: ProductorRegistroComponent,
+      canActivate: [AuthGuard]
   },
   {
       path: 'productorDetalle/:id',
-      component: ProductorRegistroComponent
+      component: ProductorRegistroComponent,
+      canActivate: [AuthGuard]
   },
   {
       path: 'productorDatosFamilia/:id',
-      component: ProductorDatosFamiliaComponent
+      component: ProductorDatosFamiliaComponent,
+      canActivate: [AuthGuard]
   },
   {
       path: 'productorAgroclimatica/:id',
-      component: ProductorAgroclimaticaComponent
+      component: ProductorAgroclimaticaComponent,
+      canActivate: [AuthGuard]
   },
   {
       path: 'productorFertilizacionNutricion/:id',
-      component: ProductorFertilizacionNutricionComponent
+      component: ProductorFertilizacionNutricionComponent,
+      canActivate: [AuthGuard]
   },
   {
       path: 'productorProduccionPecuariaAgricola/:id',
-      component: ProductorProducccionPecuariaAgricolaComponent
+      component: ProductorProducccionPecuariaAgricolaComponent,
+      canActivate: [AuthGuard]
   },
   {
       path: 'formatoAuditoriaConsulta',
-      component: FormatoAuditoriaConsultaComponent
+      component: FormatoAuditoriaConsultaComponent,
+      canActivate: [AuthGuard]
   },
   {
       path: 'materiaPrimaConsulta',
-      component: MateriaPrimaConsultaComponent
+      component: MateriaPrimaConsultaComponent,
+      canActivate: [AuthGuard]
   },
   {
       path: 'fichaDiagnosticoConsulta',
-      component: FichaDiagnosticoConsultaComponent
+      component: FichaDiagnosticoConsultaComponent,
+      canActivate: [AuthGuard]
   },
   {
       path: 'fichaAuditoriaRegistro',
-      component: FichaAuditoriaRegistroComponent
+      component: FichaAuditoriaRegistroComponent,
+      canActivate: [AuthGuard]
   },
   {
       path: 'cultivoConsulta',
-      component: CultivoConsultaComponent
+      component: CultivoConsultaComponent,
+      canActivate: [AuthAdminGuard]
   },
   {
       path: 'categoriaFAIConsulta',
-      component: CategoriaFAIConsultaComponent
+      component: CategoriaFAIConsultaComponent,
+      canActivate: [AuthAdminGuard]
   },
   {
       path: 'itemFAIRegistro',
-      component: ItemFAIRegistroComponent
+      component: ItemFAIRegistroComponent,
+      canActivate: [AuthAdminGuard]
   },
 
 ];

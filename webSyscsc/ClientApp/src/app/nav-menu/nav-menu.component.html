@@ -7,26 +7,26 @@
       </a>
     </li>
     <!-- Usuario admin-->
-    <li [routerLinkActive]="['active']">
+    <li [routerLinkActive]="['active']" *ngIf="currentUser.tipoUsuario == 1">
       <a [routerLink]="['/usuarioConsulta']">
         <i class="nc-icon nc-single-02"></i>
         <p>Usuarios - (A)</p>
       </a>
     </li>
-    <li [routerLinkActive]="['active']">
+    <li [routerLinkActive]="['active']" *ngIf="currentUser">
       <a [routerLink]="['/productorConsulta']">
         <i class="nc-icon nc-bank"></i>
         <p>Productores - (A)</p>
       </a>
     </li>
     <li [routerLinkActive]="['active']">
-      <a [routerLink]="['/formatoAuditoriaConsulta']">
+      <a [routerLink]="['/formatoAuditoriaConsulta']" *ngIf="currentUser.tipoUsuario == 1">
         <i class="nc-icon nc-bank"></i>
         <p>Formato Fic. Aud. Int. - (A)</p>
       </a> 
     </li>
     <li [routerLinkActive]="['active']">
-      <a [routerLink]="['/cultivoConsulta']">
+      <a [routerLink]="['/cultivoConsulta']" *ngIf="currentUser.tipoUsuario == 1">
         <i class="nc-icon nc-bank"></i>
         <p>Cultivos - (A)</p>
       </a>
@@ -40,7 +40,7 @@
       </a>
     </li>-->
     <li [routerLinkActive]="['active']">
-      <a [routerLink]="['/fichaAuditoriaRegistro']">
+      <a [routerLink]="['/fichaAuditoriaRegistro']" *ngIf="currentUser">
         <i class="nc-icon nc-bank"></i>
         <p>Registrar Fic. Aud. Int. - (T)</p>
       </a>
